@@ -10,6 +10,7 @@ class ConnectFiveBoard:
     board: List[List[str]]
     P1 = 'X'
     P2 = 'O'
+    row: int, col: int
 
     def __init__(self, player, dim = 8) -> None:
         """
@@ -71,4 +72,11 @@ class ConnectFiveBoard:
                 if self.board[i][j] == player:
                     count += 1
         return count
+
+    def checkWinner(self):
+        if self.getCount(P1) == 5:
+            return P1
+        elif self.getCount(P2) == 5:
+            return P2
+        return None
 
