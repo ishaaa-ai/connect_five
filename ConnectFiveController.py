@@ -1,16 +1,18 @@
 """
 This is a ConnectFiveController class, which represents the controller in the Connect 5
 "Gomoku" game
-
 Author: Gauravdeep Setia
 """
 from typing import Tuple
 from ConnectFiveBoard import ConnectFiveBoard
+from ConnectFive import ConnectFiveBoard
 
 
 class ConnectFiveController:
 
     _board: ConnectFiveBoard()
+    _game: ConnectFiveBoard()
+    _player: str
 
     def __init__(self) -> None:
         """
@@ -18,10 +20,11 @@ class ConnectFiveController:
         Creates a ConnectFiveBoard object.
         """
         self._board: ConnectFiveBoard(15)
+        self._game = ConnectFiveBoard('X', 15)
+        self._player = "X"
 
     def get_move(self) -> Tuple[str, str]:
         """
-
         """
 
         while True:
@@ -48,14 +51,49 @@ class ConnectFiveController:
                 print("Invalid input, try again")
                 print("")
 
+    def player_turn(self) -> str:
+        """
+        Returns the player ("X" or "O") whose turn it currently is.
+        ~ Isha Kerpal
+        """
+        msg = "It is player: " + self._game.otherPlayer(self._player) + "'s turn."
+        self._player = self._game.otherPlayer(self._player)
+        return msg
+
+    def return_board(self):
+        """
+        Returns a string representation of the updated board.
+        ~ Isha Kerpal
+        """
+        return "Board: " + self._board.__str__()
+
+    def check_move(self) -> bool:
+        """
+        Checks if the current player has any move currently on the board.
+        Returns True if the player has a move.
+        Returns False if the player doesn't have a move anywhere on the board.
+        Disclaimer : Method hasMove(player) in the ConnectFiveBoard class
+                    ( in ConnectFive.py) will be implemented later.
+
+        ~ Isha Kerpal
+        """
+        if self._game.hasMove(self._player):
+            return True
+        return False
+
 
 if __name__ == "__main__":
+    """
+    Runs only for the first two games. (Needs to be modified)
+    """
     c = ConnectFiveController()
-
     c.get_move()
-
-
-
-
-
+    # Prints the board after it has been modified with the new move.
+    # ~ Isha Kerpal
+    print(c.return_board())
+    # Prints which player's turn it is
+    # ~ Isha Kerpal
+    print(c.player_turn())
+    if c.check_move():
+        c.get_move()
 
