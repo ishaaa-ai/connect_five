@@ -9,9 +9,8 @@ class ConnectFiveGame:
     board: List[List[str]]
     P1 = 'X'
     P2 = 'O'
-    row: int, col: int
 
-    def __init__(self, controller : ConnectFiveController) -> None:
+    def __init__(self, controller : object) -> None:
         """
         initialize a new ConnectFiveGame object
 
@@ -26,21 +25,21 @@ class ConnectFiveGame:
     Returns the opponent of player
     """
     def otherPlayer(self, player):
-        if player == P1:
-            return P2
-        elif player == P2:
-            return P1
+        if player == self.P1:
+            return self.P2
+        elif player == self.P2:
+            return self.P1
         return None
 
     def alternation(self, row, col, drow, dcol):
         stopping = ' '
-        while validCoordinate(row, col):
-            if board[row][col] == ' ':
+        while self.board.validCoordinate(row, col):
+            if self.board[row][col] == ' ':
                 return
-            elif board[row][col] == stopping:
+            elif self.board[row][col] == stopping:
                 return stopping
             else:
-                stopping = otherPlayer(board[row][col])
+                stopping = self.otherPlayer(self.board[row][col])
 
             row += drow
             col += dcol
@@ -48,38 +47,60 @@ class ConnectFiveGame:
         return None
 
     
-    def uniformChips (self, row : int, col : int, drow : int, dcol : int):
-    """
-    Return the player that has 5 in at this position in this position
-    If neither then return None
-    
-    :param row: the row of the current position
-    :param col: the col of the current position 
-    :param drow: the vertical direction
-    :param dcol: the horizontal direction
-    """
-        if (controller.get_chip(row, col) != ' '):
-            current_chip = controller.get_chip(row, col)
-            while controller.validCoordinate(row+drow, col+dcol):
-                #TO DO : continue checking if the next chip equals the current chip
+    def uniformChips(self, row:int, col:int, drow:int, dcol:int):
+        """
+        Return the player that has 5 in a row starting at position (row, col)
+        in direction (drow, dcol)
+        If neither player has 5 in a row then return None
+
+        :param row: the row of the current position
+        :param col: the col of the current position
+        :param drow: the vertical direction
+        :param dcol: the horizontal direction
+        """
+        if self.controller.get_chip(row, col) != ' ' and self.controller.validCoordinate(row, col):
+            current_chip = self.controller.get_chip(row, col)
+            count = 1
+            # continue until edge of board is hit
+            while self.controller.validCoordinate(row+drow, col+dcol):
+                # get the next chip in drow, dcol direction
+                next_chip = self.controller.get_chip(row+drow, col+dcol)
+                # update counter if the next chip is the same as the current chip
+                if current_chip == next_chip:
+                    count += 1
+                    current_chip = next_chip
+                # the chip is not the same, check if an unbroken line of 5 of one chip
+                else:
+                    if count == 5:
+                        return current_chip
+                    else:
+                        return None
+            # edge has been reached, check unbroken line of 5 of one chip
+            if count == 5:
+                return current_chip
         return None
                 
     
-    def hasMove(self, str : player):
-    """
-    Checks if this player has a valid move on the board
-    
-    :param player: a player chip on the ConnectFiveBoard
-    """
-        row = 0
-        col = 0
-        for row in range(board.get_dimension):
-            for col in range(board.get_dimension):
-                if (controller.get_chip(row, num_to_alpha(col)) == ' '):
+    def hasMove(self, player : str):
+        """
+        Checks if player has a valid move on the board
+
+        :param player: a player chip on the ConnectFiveBoard
+        """
+        for row in range(self.board.get_dimension):
+            for col in range(self.board.get_dimension):
+                # player can move if there is an empty space
+                if self.controller.get_chip(row, self.board.num_to_alpha(col)) == ' ':
                     return True
         return False
         
     def getCount(self, player):
+        """
+        Return how many chips of type player are on the board
+
+        :param player:
+        :return:
+        """
         count = 0
         for i in range(len(self.row)):
             for j in range(len(self.col)):
@@ -88,16 +109,16 @@ class ConnectFiveGame:
         return count
 
     def checkWinner(self):
-    """
-    Check if there is a winner (i.e If a player has 5 chips in a row on the board)
-    """
-         for row in range(board.get_dimension):
-            for col in range(board.get_dimension):
-                for drow in range(2):
-                    for dcol in range(2):
-                        winner = uniformChips(row, col, drow, dcol)
+        """
+        Check if there is a winner (i.e If a player has 5 chips in a row on the board)
+        """
+
+        for row in range(self.board.get_dimension):
+            for col in range(self.board.get_dimension):
+                for drow in range(-1, 2):
+                    for dcol in range(-1, 2):
+                        winner = self.uniformChips(row, col, drow, dcol)
                         if winner == "X":
                             return "X"
                         elif winner == "O":
                             return "O"
-
