@@ -20,7 +20,7 @@ class ConnectFiveController:
         Creates a ConnectFiveBoard object.
         """
         self._board = ConnectFiveBoard(15)
-        self._game = ConnectFiveGame(self)
+        self._game = ConnectFiveGame(self._board)
         self._player = "X"
 
     def get_move(self) -> Tuple[str, str]:
