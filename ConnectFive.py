@@ -5,7 +5,6 @@ This is a ConnectFiveController class, which represents the controller in the Co
 =======
 This is a ConnectFiveGame class, which represents the model in the Connect 5
 "Gomoku" game
->>>>>>> refs/remotes/origin/master
 
 Author: Kevin, Jacob
 """
@@ -24,7 +23,7 @@ class ConnectFiveGame:
         """
         self.controller = controller
         self.board = controller._board
-        
+
 
     """
     Returns the opponent of player
@@ -51,7 +50,7 @@ class ConnectFiveGame:
 
         return None
 
-    
+
     def uniformChips(self, row:int, col:int, drow:int, dcol:int):
         """
         Return the player that has 5 in a row starting at position (row, col)
@@ -84,8 +83,8 @@ class ConnectFiveGame:
             if count == 5:
                 return current_chip
         return None
-                
-    
+
+
     def hasMove(self, player : str):
         """
         Checks if player has a valid move on the board
@@ -98,7 +97,7 @@ class ConnectFiveGame:
                 if self.controller.get_chip(row, self.board.num_to_alpha(col)) == ' ':
                     return True
         return False
-        
+
     def getCount(self, player):
         """
         Return how many chips of type player are on the board
@@ -118,8 +117,6 @@ class ConnectFiveGame:
         Check if there is a winner (i.e If a player has 5 chips in a row on the board)
         """
 
-
-
         for row in range(self.board.get_dimension):
             for col in range(self.board.get_dimension):
                 for drow in range(-1, 2):
@@ -129,7 +126,6 @@ class ConnectFiveGame:
                             return "X"
                         elif winner == "O":
                             return "O"
-
 
     def isGameOver(self):
         """
