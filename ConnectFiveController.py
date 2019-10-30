@@ -26,28 +26,22 @@ class ConnectFiveController:
     def get_move(self) -> Tuple[str, str]:
         """
         """
-
         while True:
-            try:
-                print("The rows and columns are from 1-e")
-                print("0,1,2,3,4,5,6,7,8,9,a,b,c,d,e")
-                row = input("Row: ")
-                col = input("Column: ")
-                print("")
+            print("The rows and columns are from 1-e")
+            print("0,1,2,3,4,5,6,7,8,9,a,b,c,d,e")
+            row = input("Row: ")
+            col = input("Column: ")
+            print("")
 
-                if (row in ['a', 'b', 'c', 'd', 'e'] or (0 <= int(row) <= 9)) \
-                        and (col in ['a', 'b', 'c', 'd', 'e'] or
-                             (0 <= int(col) <= 9)):
-                    if self._board.valid_coordinate(row, col):
-                        return row, col
-                    else:
-                        print("Invalid move, try again")
-                        print("")
+            if (row in ['a', 'b', 'c', 'd', 'e'] or (0 <= int(row) <= 9)) \
+                    and (col in ['a', 'b', 'c', 'd', 'e'] or
+                         (0 <= int(col) <= 9)):
+                if self._board.valid_coordinate(row, col):
+                    return row, col
                 else:
-                    print("Invalid input, try again")
+                    print("Invalid move, try again")
                     print("")
-
-            except:
+            else:
                 print("Invalid input, try again")
                 print("")
 
@@ -80,6 +74,14 @@ class ConnectFiveController:
         if self._game.hasMove(self._player):
             return True
         return False
+
+    def play(self):
+        while self._game.isGameOver():
+            self.player_turn()
+            move = self.get_move()
+            self._game.move(move[0], move[1], self._player)
+
+
 
 
 if __name__ == "__main__":
