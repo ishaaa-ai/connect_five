@@ -1,6 +1,11 @@
 """
+<<<<<<< HEAD
+This is a ConnectFiveController class, which represents the controller in the Connect 5
+"Gomoku" game. I have checked all possible
+=======
 This is a ConnectFiveGame class, which represents the model in the Connect 5
 "Gomoku" game
+>>>>>>> refs/remotes/origin/master
 
 Author: Kevin, Jacob
 """
@@ -113,6 +118,10 @@ class ConnectFiveGame:
         Check if there is a winner (i.e If a player has 5 chips in a row on the board)
         """
 
+<<<<<<< HEAD
+
+
+=======
         for row in range(self.board.get_dimension):
             for col in range(self.board.get_dimension):
                 for drow in range(-1, 2):
@@ -122,3 +131,15 @@ class ConnectFiveGame:
                             return "X"
                         elif winner == "O":
                             return "O"
+>>>>>>> refs/remotes/origin/master
+
+    def isGameOver(self):
+        """
+        Return True iff the board is fulfilled all chips
+        """
+        for row in range(self.board.get_dimension):
+            for col in range(self.board.get_dimension):
+                winner = self.uniformChips(row,col,drow,dcol)
+                if self.board[row][col] == " " or winner == None:
+                    return True
+        return False
