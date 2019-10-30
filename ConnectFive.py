@@ -14,15 +14,14 @@ class ConnectFiveGame:
     P1 = 'X'
     P2 = 'O'
 
-    def __init__(self, controller : object) -> None:
+    def __init__(self, board : object) -> None:
         """
         initialize a new ConnectFiveGame object
 
         == Precondition ==
 
         """
-        self.controller = controller
-        self.board = controller._board
+        self.board = board
 
 
     """
