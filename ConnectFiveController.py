@@ -10,8 +10,8 @@ from ConnectFive import ConnectFiveGame
 
 class ConnectFiveController:
 
-    _board: ConnectFiveBoard()
-    _game: ConnectFiveGame()
+    _board: ConnectFiveBoard
+    _game: ConnectFiveGame
     _player: str
 
     def __init__(self) -> None:
