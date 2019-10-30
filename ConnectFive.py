@@ -1,6 +1,6 @@
 """
 This is a ConnectFiveController class, which represents the controller in the Connect 5
-"Gomoku" game
+"Gomoku" game. I have checked all possible
 
 Author: Kevin, Jacob
 """
@@ -79,4 +79,6 @@ class ConnectFiveBoard:
         elif self.getCount(P2) == 5:
             return P2
         return None
+
+
 
