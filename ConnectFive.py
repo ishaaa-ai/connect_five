@@ -9,12 +9,14 @@ This is a ConnectFiveGame class, which represents the model in the Connect 5
 Author: Kevin, Jacob
 """
 from typing import List
+from ConnectFiveBoard import ConnectFiveBoard
+
 class ConnectFiveGame:
     board : List[List[str]]
     P1 = 'X'
     P2 = 'O'
 
-    def __init__(self, board : object) -> None:
+    def __init__(self, board : ConnectFiveBoard) -> None:
         """
         initialize a new ConnectFiveGame object
 
