@@ -5,13 +5,13 @@ Author: Gauravdeep Setia
 """
 from typing import Tuple
 from ConnectFiveBoard import ConnectFiveBoard
-from ConnectFive import ConnectFiveBoard
+from ConnectFive import ConnectFiveGame
 
 
 class ConnectFiveController:
 
-    _board: ConnectFiveBoard()
-    _game: ConnectFiveBoard()
+    board: ConnectFiveBoard()
+    _game: ConnectFiveGame()
     _player: str
 
     def __init__(self) -> None:
@@ -19,8 +19,8 @@ class ConnectFiveController:
         Initialize a new ConnectFiveController object
         Creates a ConnectFiveBoard object.
         """
-        self._board: ConnectFiveBoard(15)
-        self._game = ConnectFiveBoard('X', 15)
+        self._board = ConnectFiveBoard(15)
+        self._game = ConnectFiveGame(self)
         self._player = "X"
 
     def get_move(self) -> Tuple[str, str]:
