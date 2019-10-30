@@ -6,7 +6,7 @@ Author: Kevin, Jacob
 """
 from typing import List
 class ConnectFiveGame:
-    board: List[List[str]]
+    board : List[List[str]]
     P1 = 'X'
     P2 = 'O'
 
