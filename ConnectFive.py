@@ -12,7 +12,7 @@ from typing import List
 from ConnectFiveBoard import ConnectFiveBoard
 
 class ConnectFiveGame:
-    board : List[List[str]]
+    board : ConnectFiveBoard
     P1 = 'X'
     P2 = 'O'
 
