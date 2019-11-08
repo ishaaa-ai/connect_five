@@ -23,8 +23,10 @@ class ConnectFiveController:
         self._game = ConnectFiveGame(self._board)
         self._player = "X"
 
-    def get_move(self) -> Tuple[str, str]:
+    def get_move(self) -> Tuple[int, int]:
         """
+        poop
+        @return: the move
         """
         while True:
             print("The rows and columns are from 1-e")
@@ -36,6 +38,16 @@ class ConnectFiveController:
             if (row in ['a', 'b', 'c', 'd', 'e'] or (0 <= int(row) <= 9)) \
                     and (col in ['a', 'b', 'c', 'd', 'e'] or
                          (0 <= int(col) <= 9)):
+
+                if row is str:
+                    row = self._board.alpha_to_num(row)
+                else:
+                    row = int(row)
+                if col is str:
+                    col = self._board.alpha_to_num()
+                else:
+                    col = int(col)
+
                 if self._board.valid_coordinate(row, col):
                     return row, col
                 else:
@@ -51,7 +63,7 @@ class ConnectFiveController:
         ~ Isha Kerpal
         """
         msg = "It is player: " + self._game.otherPlayer(self._player) + "'s turn."
-        self._player = self._game.otherPlayer(self._player)
+
         return msg
 
     def return_board(self):
@@ -76,10 +88,17 @@ class ConnectFiveController:
         return False
 
     def play(self):
+        """
+        idk
+        :return:
+        """
+
         while self._game.isGameOver():
+            print(self._board)
             self.player_turn()
             move = self.get_move()
             self._game.move(move[0], move[1], self._player)
+            self._player = self._game.otherPlayer(self._player)
 
 
 
@@ -89,13 +108,13 @@ if __name__ == "__main__":
     Runs only for the first two games. (Needs to be modified)
     """
     c = ConnectFiveController()
-    c.get_move()
-    # Prints the board after it has been modified with the new move.
-    # ~ Isha Kerpal
-    print(c.return_board())
-    # Prints which player's turn it is
-    # ~ Isha Kerpal
-    print(c.player_turn())
-    if c.check_move():
-        c.get_move()
+    c.play()
+    # # Prints the board after it has been modified with the new move.
+    # # ~ Isha Kerpal
+    # print(c.return_board())
+    # # Prints which player's turn it is
+    # # ~ Isha Kerpal
+    # print(c.player_turn())
+    # if c.check_move():
+        #c.get_move()
 

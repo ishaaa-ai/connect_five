@@ -38,7 +38,7 @@ class ConnectFiveGame:
 
     def alternation(self, row, col, drow, dcol):
         stopping = ' '
-        while self.board.validCoordinate(row, col):
+        while self.board.valid_coordinate(row, col):
             if self.board[row][col] == ' ':
                 return
             elif self.board[row][col] == stopping:
@@ -118,8 +118,8 @@ class ConnectFiveGame:
         Check if there is a winner (i.e If a player has 5 chips in a row on the board)
         """
 
-        for row in range(self.board.get_dimension):
-            for col in range(self.board.get_dimension):
+        for row in range(self.board.get_dimension()):
+            for col in range(self.board.get_dimension()):
                 for drow in range(-1, 2):
                     for dcol in range(-1, 2):
                         winner = self.uniformChips(row, col, drow, dcol)
@@ -132,9 +132,19 @@ class ConnectFiveGame:
         """
         Return True iff the board is fulfilled all chips
         """
-        for row in range(self.board.get_dimension):
-            for col in range(self.board.get_dimension):
+        for row in range(self.board.get_dimension()):
+            for col in range(self.board.get_dimension()):
                 winner = self.uniformChips(row,col,drow,dcol)
                 if self.board[row][col] == " " or winner == None:
                     return True
         return False
+
+    def move(self, row,col,player):
+        """
+
+        :param row:
+        :param col:
+        :param player:
+        :return:
+        """
+        pass
