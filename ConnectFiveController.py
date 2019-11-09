@@ -94,11 +94,13 @@ class ConnectFiveController:
         """
 
         while self._game.isGameOver():
-            print(self._board)
+            self.return_board()
             self.player_turn()
             move = self.get_move()
             self._game.move(move[0], move[1], self._player)
             self._player = self._game.otherPlayer(self._player)
+
+        print(self._game.checkWinner())
 
 
 
