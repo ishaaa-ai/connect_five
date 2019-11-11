@@ -65,7 +65,7 @@ class ConnectFiveBoard:
         :return: true if empty, false otherwise
         """
 
-        if 0 <= row < self._dim and 0 <= col < self._dim:  # in dimension
+        if not (0 <= row < self._dim and 0 <= col < self._dim):  # out of bounds
             return False
         elif self._grid[row][col] == " ":
             return True
