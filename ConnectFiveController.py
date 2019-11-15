@@ -16,8 +16,10 @@ class ConnectFiveController:
 
     def __init__(self) -> None:
         """
-        Initialize a new ConnectFiveController object
+        Initialize a new ConnectFiveController object.
         Creates a ConnectFiveBoard object.
+        
+        @return: None
         """
         self._board = ConnectFiveBoard(15)
         self._game = ConnectFiveGame(self._board)
@@ -25,8 +27,11 @@ class ConnectFiveController:
 
     def get_move(self) -> Tuple[int, int]:
         """
-        poop
-        @return: the move
+        Prompts the user to input a row and column on the board where
+        they want to make the move.
+        
+        @return: A tuple with the row and column on the board where
+        the user makes a move.
         """
         while True:
             print("The rows and columns are from 1-e")
@@ -59,29 +64,24 @@ class ConnectFiveController:
 
     def player_turn(self) -> str:
         """
-        Returns the player ("X" or "O") whose turn it currently is.
-        ~ Isha Kerpal
+        @return: The player ("X" or "O") whose turn it currently is.
         """
         msg = "It is player: " + self._game.otherPlayer(self._player) + "'s turn."
 
         return msg
 
-    def return_board(self):
+    def return_board(self) -> str:
         """
-        Returns a string representation of the updated board.
-        ~ Isha Kerpal
+        @return: String representation of the updated board.
         """
         return "Board: " + self._board.__str__()
 
     def check_move(self) -> bool:
         """
         Checks if the current player has any move currently on the board.
-        Returns True if the player has a move.
-        Returns False if the player doesn't have a move anywhere on the board.
-        Disclaimer : Method hasMove(player) in the ConnectFiveBoard class
-                    ( in ConnectFive.py) will be implemented later.
-
-        ~ Isha Kerpal
+        
+        @return: True if the player has a move.
+                 False if the player doesn't have a move anywhere on the board.
         """
         if self._game.hasMove(self._player):
             return True
@@ -89,32 +89,27 @@ class ConnectFiveController:
 
     def play(self):
         """
-        idk
-        :return:
+        Makes use of the get_move method and makes adjustments to the board
+        and the game according to the move made by the user.
+        
+        @return: None
         """
 
         while self._game.isGameOver():
-            print(self._board)
+            self.return_board()
             self.player_turn()
-            move = self.get_move()
-            self._game.move(move[0], move[1], self._player)
-            self._player = self._game.otherPlayer(self._player)
+            if check_move:
+                move = self.get_move()
+                self._game.move(move[0], move[1], self._player)
+                self._player = self._game.otherPlayer(self._player)
+        print(self._game.checkWinner()+" is the winner.")
 
 
 
 
 if __name__ == "__main__":
     """
-    Runs only for the first two games. (Needs to be modified)
+    Makes a ConnectFiveController object and starts a new game.
     """
     c = ConnectFiveController()
     c.play()
-    # # Prints the board after it has been modified with the new move.
-    # # ~ Isha Kerpal
-    # print(c.return_board())
-    # # Prints which player's turn it is
-    # # ~ Isha Kerpal
-    # print(c.player_turn())
-    # if c.check_move():
-        #c.get_move()
-
