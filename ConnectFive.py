@@ -6,7 +6,7 @@ This is a ConnectFiveController class, which represents the controller in the Co
 This is a ConnectFiveGame class, which represents the model in the Connect 5
 "Gomoku" game
 
-Author: Kevin, Jacob
+Author: Phan Trung Kien, Jacob
 """
 from typing import List
 from ConnectFiveBoard import ConnectFiveBoard
