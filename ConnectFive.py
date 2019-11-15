@@ -36,6 +36,7 @@ class ConnectFiveGame:
             return self.P1
         return None
 
+    """
     def alternation(self, row, col, drow, dcol):
         stopping = ' '
         while self.board.valid_coordinate(row, col):
@@ -51,7 +52,7 @@ class ConnectFiveGame:
 
         return None
 
-
+    """
     def uniformChips(self, row:int, col:int, drow:int, dcol:int):
         """
         Return the player that has 5 in a row starting at position (row, col)
@@ -133,7 +134,7 @@ class ConnectFiveGame:
         Return True iff the board is fulfilled all chips
         """
 
-        winner = self.uniformChips(row,col,drow,dcol)
+        winner = self.checkWinner()
         if self.hasMove() == False and winner != None:
             return True
 

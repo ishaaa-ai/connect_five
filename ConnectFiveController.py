@@ -1,7 +1,7 @@
 """
 This is a ConnectFiveController class, which represents the controller in the Connect 5
 "Gomoku" game
-Author: Gauravdeep Setia
+Author: Gauravdeep Setia, Isha Kerbal
 """
 from typing import Tuple
 from ConnectFiveBoard import ConnectFiveBoard
