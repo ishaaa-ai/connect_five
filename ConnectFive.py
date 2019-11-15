@@ -12,7 +12,7 @@ from typing import List
 from ConnectFiveBoard import ConnectFiveBoard
 
 class ConnectFiveGame:
-    board : ConnectFiveBoard
+    board: ConnectFiveBoard
     P1 = 'X'
     P2 = 'O'
 
@@ -67,9 +67,9 @@ class ConnectFiveGame:
             current_chip = self.controller.get_chip(row, col)
             count = 1
             # continue until edge of board is hit
-            while self.controller.validCoordinate(row+drow, col+dcol):
+            while self.controller.validCoordinate(row+drow, col + dcol):
                 # get the next chip in drow, dcol direction
-                next_chip = self.controller.get_chip(row+drow, col+dcol)
+                next_chip = self.controller.get_chip(row+drow, col + dcol)
                 # update counter if the next chip is the same as the current chip
                 if current_chip == next_chip:
                     count += 1
@@ -86,7 +86,7 @@ class ConnectFiveGame:
         return None
 
 
-    def hasMove(self, player : str):
+    def hasMove(self):
         """
         Checks if player has a valid move on the board
 
@@ -132,19 +132,18 @@ class ConnectFiveGame:
         """
         Return True iff the board is fulfilled all chips
         """
-        for row in range(self.board.get_dimension()):
-            for col in range(self.board.get_dimension()):
-                winner = self.uniformChips(row,col,drow,dcol)
-                if self.board[row][col] == " " or winner == None:
-                    return True
+
+        winner = self.uniformChips(row,col,drow,dcol)
+        if self.hasMove() == False and winner != None:
+            return True
+
         return False
 
-    def move(self, row,col,player):
+    def move(self, row,col, player):
         """
+        Return the board
 
-        :param row:
-        :param col:
-        :param player:
-        :return:
         """
-        pass
+        self.board.place_token(player, row, col)
+
+
