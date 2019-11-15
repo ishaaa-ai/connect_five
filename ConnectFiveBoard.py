@@ -46,7 +46,7 @@ class ConnectFiveBoard:
 
         # make a list that has <_dim> number of <_dim> size lists
         for x in range(dim):
-            l2.append(l1)
+            l2.append(l1[:])
         # create an empty _grid
         self._grid = l2[:]
 
@@ -56,6 +56,13 @@ class ConnectFiveBoard:
         :return: the dimension
         """
         return self._dim
+
+    def get_chip(self, row, col) -> str:
+        """
+        Get the piece at a specific coordinate on the grid
+        :return: the str at row,col
+        """
+        return self._grid[row][col]
 
     def valid_coordinate(self, row: int, col: int) -> bool:
         """
@@ -87,6 +94,7 @@ class ConnectFiveBoard:
 
         if self.valid_coordinate(row, col):
             self._grid[row][col] = token
+
 
     def num_to_alpha(self, num: int) -> str:
         """

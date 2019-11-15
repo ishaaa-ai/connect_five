@@ -64,13 +64,13 @@ class ConnectFiveGame:
         :param drow: the vertical direction
         :param dcol: the horizontal direction
         """
-        if self.controller.get_chip(row, col) != ' ' and self.controller.validCoordinate(row, col):
-            current_chip = self.controller.get_chip(row, col)
+        if self.board.get_chip(row, col) != ' ' and self.board.valid_coordinate(row, col):
+            current_chip = self.board.get_chip(row, col)
             count = 1
             # continue until edge of board is hit
-            while self.controller.validCoordinate(row+drow, col + dcol):
+            while self.board.valid_coordinate(row+drow, col + dcol):
                 # get the next chip in drow, dcol direction
-                next_chip = self.controller.get_chip(row+drow, col + dcol)
+                next_chip = self.board.get_chip(row+drow, col + dcol)
                 # update counter if the next chip is the same as the current chip
                 if current_chip == next_chip:
                     count += 1
@@ -93,10 +93,10 @@ class ConnectFiveGame:
 
         :param player: a player chip on the ConnectFiveBoard
         """
-        for row in range(self.board.get_dimension):
-            for col in range(self.board.get_dimension):
+        for row in range(self.board.get_dimension()):
+            for col in range(self.board.get_dimension()):
                 # player can move if there is an empty space
-                if self.controller.get_chip(row, self.board.num_to_alpha(col)) == ' ':
+                if self.board.get_chip(row, col) == ' ':
                     return True
         return False
 
@@ -135,12 +135,12 @@ class ConnectFiveGame:
         """
 
         winner = self.checkWinner()
-        if self.hasMove() == False and winner != None:
+        if self.hasMove() == False or winner != None:
             return True
 
         return False
 
-    def move(self, row,col, player):
+    def move(self, row, col, player):
         """
         Return the board
 

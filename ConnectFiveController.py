@@ -18,7 +18,7 @@ class ConnectFiveController:
         """
         Initialize a new ConnectFiveController object.
         Creates a ConnectFiveBoard object.
-        
+
         @return: None
         """
         self._board = ConnectFiveBoard(15)
@@ -29,7 +29,7 @@ class ConnectFiveController:
         """
         Prompts the user to input a row and column on the board where
         they want to make the move.
-        
+
         @return: A tuple with the row and column on the board where
         the user makes a move.
         """
@@ -44,12 +44,12 @@ class ConnectFiveController:
                     and (col in ['a', 'b', 'c', 'd', 'e'] or
                          (0 <= int(col) <= 9)):
 
-                if row is str:
+                if row in ['a', 'b', 'c', 'd', 'e']:
                     row = self._board.alpha_to_num(row)
                 else:
                     row = int(row)
-                if col is str:
-                    col = self._board.alpha_to_num()
+                if col in ['a', 'b', 'c', 'd', 'e']:
+                    col = self._board.alpha_to_num(col)
                 else:
                     col = int(col)
 
@@ -70,20 +70,20 @@ class ConnectFiveController:
 
         return msg
 
-    def return_board(self) -> str:
+    def return_board(self):
         """
         @return: String representation of the updated board.
         """
-        return "Board: " + self._board.__str__()
+        print("Board: \n" + self._board.__str__())
 
     def check_move(self) -> bool:
         """
         Checks if the current player has any move currently on the board.
-        
+
         @return: True if the player has a move.
                  False if the player doesn't have a move anywhere on the board.
         """
-        if self._game.hasMove(self._player):
+        if self._game.hasMove():
             return True
         return False
 
@@ -91,18 +91,18 @@ class ConnectFiveController:
         """
         Makes use of the get_move method and makes adjustments to the board
         and the game according to the move made by the user.
-        
+
         @return: None
         """
 
-        while self._game.isGameOver():
+        while not self._game.isGameOver():
             self.return_board()
             self.player_turn()
-            if check_move:
+            if self.check_move():
                 move = self.get_move()
                 self._game.move(move[0], move[1], self._player)
                 self._player = self._game.otherPlayer(self._player)
-        print(self._game.checkWinner()+" is the winner.")
+        print(self._game.checkWinner() + " is the winner.")
 
 
 
