@@ -66,9 +66,9 @@ class ConnectFiveController:
         """
         @return: The player ("X" or "O") whose turn it currently is.
         """
-        msg = "It is player: " + self._game.otherPlayer(self._player) + "'s turn."
+        print("It is player: " + self._player + "'s turn.")
 
-        return msg
+
 
     def return_board(self):
         """
@@ -102,7 +102,12 @@ class ConnectFiveController:
                 move = self.get_move()
                 self._game.move(move[0], move[1], self._player)
                 self._player = self._game.otherPlayer(self._player)
-        print(self._game.checkWinner() + " is the winner.")
+
+        winner = self._game.checkWinner()
+        if winner is None:
+            print("No one wins. No one got 5 in a row.")
+        else:
+            print(winner + " is the winner.")
 
 
 
