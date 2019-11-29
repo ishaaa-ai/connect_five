@@ -10,7 +10,7 @@ from ConnectFive import ConnectFiveGame
 
 class ConnectFiveController:
 
-    _board: ConnectFiveBoard
+    _board: ConnectFive3Board
     _game: ConnectFiveGame
     _player: str
 
@@ -42,7 +42,7 @@ class ConnectFiveController:
 
             print("")
 
-            if len(row) > 1 and len(col) > 1 and (row in
+            if len(row) > 0 and len(col) > 0 and (row in
                     ['a', 'b', 'c', 'd', 'e'] or (0 <= int(row) <= 9)) \
                     and (col in ['a', 'b', 'c', 'd', 'e'] or
                          (0 <= int(col) <= 9)):
