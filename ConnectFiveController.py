@@ -10,7 +10,7 @@ from ConnectFive import ConnectFiveGame
 
 class ConnectFiveController:
 
-    _board: ConnectFive3Board
+    _board: ConnectFiveBoard
     _game: ConnectFiveGame
     _player: str
 
