@@ -22,33 +22,17 @@ class ConnectFiveGame:
         self.board = board
 
 
-    """
-    Returns the opponent of player
-    """
+    
     def otherPlayer(self, player):
+        """
+        Returns the opponent of player
+        """
         if player == self.P1:
             return self.P2
         elif player == self.P2:
             return self.P1
         return None
 
-    """
-    def alternation(self, row, col, drow, dcol):
-        stopping = ' '
-        while self.board.valid_coordinate(row, col):
-            if self.board[row][col] == ' ':
-                return
-            elif self.board[row][col] == stopping:
-                return stopping
-            else:
-                stopping = self.otherPlayer(self.board[row][col])
-
-            row += drow
-            col += dcol
-
-        return None
-
-    """
     def uniformChips(self, row:int, col:int, drow:int, dcol:int):
         """
         Return the player that has 5 in a row starting at position (row, col)
@@ -60,17 +44,23 @@ class ConnectFiveGame:
         :param drow: the vertical direction
         :param dcol: the horizontal direction
         """
-        if self.board.get_chip(row, col) != ' ' and self.board.valid_coordinate(row, col):
+        if self.board.get_chip(row, col) != " " and self.board.valid_coordinate(row, col):
+            # initialize the current chip we are comparing
             current_chip = self.board.get_chip(row, col)
+            crnt_row = row
+            crnt_col = col
             count = 1
             # continue until edge of board is hit
-            while self.board.valid_coordinate(row+drow, col + dcol):
-                # get the next chip in drow, dcol direction
-                next_chip = self.board.get_chip(row+drow, col + dcol)
+            while self.board.valid_coordinate(crnt_row+drow, crnt_col + dcol):
+                # get the next chip in drow, dcol direction that we want to compare
+                next_chip = self.board.get_chip(crnt_row+drow, crnt_col + dcol)
                 # update counter if the next chip is the same as the current chip
+                #   and update the current chip we are comparing.
                 if current_chip == next_chip:
                     count += 1
                     current_chip = next_chip
+                    crnt_row = crnt_row + drow
+                    crnt_col = crnt_col + dcol
                 # the chip is not the same, check if an unbroken line of 5 of one chip
                 else:
                     if count == 5:
@@ -92,7 +82,7 @@ class ConnectFiveGame:
         for row in range(self.board.get_dimension()):
             for col in range(self.board.get_dimension()):
                 # player can move if there is an empty space
-                if self.board.get_chip(row, col) == ' ':
+                if self.board.get_chip(row, col) == " ":
                     return True
         return False
 
@@ -127,7 +117,8 @@ class ConnectFiveGame:
 
     def isGameOver(self):
         """
-        Return True iff the board is fulfilled all chips
+        Return True if no player has a move or one of the 
+        players has 5 of their chips in an unbroken line on the board
         """
 
         winner = self.checkWinner()
@@ -138,8 +129,7 @@ class ConnectFiveGame:
 
     def move(self, row, col, player):
         """
-        Return the board
-
+        Place player chip at (row, col) on the board
         """
         self.board.place_token(player, row, col)
 
