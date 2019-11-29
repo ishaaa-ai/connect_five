@@ -1,7 +1,7 @@
 """
 This is a ConnectFiveController class, which represents the controller in the Connect 5
 "Gomoku" game
-Author: Gauravdeep Setia, Isha Kerbal
+Author: Gauravdeep Setia, Isha Kerpal
 """
 from typing import Tuple
 from ConnectFiveBoard import ConnectFiveBoard
@@ -36,11 +36,14 @@ class ConnectFiveController:
         while True:
             print("The rows and columns are from 1-e")
             print("0,1,2,3,4,5,6,7,8,9,a,b,c,d,e")
+
             row = input("Row: ")
             col = input("Column: ")
+
             print("")
 
-            if (row in ['a', 'b', 'c', 'd', 'e'] or (0 <= int(row) <= 9)) \
+            if len(row) > 1 and len(col) > 1 and (row in
+                    ['a', 'b', 'c', 'd', 'e'] or (0 <= int(row) <= 9)) \
                     and (col in ['a', 'b', 'c', 'd', 'e'] or
                          (0 <= int(col) <= 9)):
 
@@ -67,8 +70,6 @@ class ConnectFiveController:
         @return: The player ("X" or "O") whose turn it currently is.
         """
         print("It is player: " + self._player + "'s turn.")
-
-
 
     def return_board(self):
         """
