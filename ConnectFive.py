@@ -1,8 +1,4 @@
 """
-<<<<<<< HEAD
-This is a ConnectFiveController class, which represents the controller in the Connect 5
-"Gomoku" game. I have checked all possible
-=======
 This is a ConnectFiveGame class, which represents the model in the Connect 5
 "Gomoku" game
 
