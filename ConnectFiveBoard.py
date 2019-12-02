@@ -79,6 +79,11 @@ class ConnectFiveBoard:
         else:
             return False
 
+    def valid(self, row: int, col: int) -> bool:
+        if not (0 <= row < self._dim and 0 <= col < self._dim):  # out of bounds
+            return False
+        return True
+    
     def place_token(self, token: str, row: int, col: int) -> None:
         """
         Places a token on a position on the _grid

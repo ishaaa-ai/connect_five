@@ -22,7 +22,7 @@ class ConnectFiveGame:
         self.board = board
 
 
-    
+
     def otherPlayer(self, player):
         """
         Returns the opponent of player
@@ -44,23 +44,25 @@ class ConnectFiveGame:
         :param drow: the vertical direction
         :param dcol: the horizontal direction
         """
-        if self.board.get_chip(row, col) != " " and self.board.valid_coordinate(row, col):
+
+        if self.board.get_chip(row, col) != " " and self.board.valid(row, col):
             # initialize the current chip we are comparing
-            current_chip = self.board.get_chip(row, col)
             crnt_row = row
             crnt_col = col
+            current_chip = self.board.get_chip(crnt_row, crnt_col)
             count = 1
             # continue until edge of board is hit
-            while self.board.valid_coordinate(crnt_row+drow, crnt_col + dcol):
+            while self.board.valid(crnt_row+drow, crnt_col + dcol):
                 # get the next chip in drow, dcol direction that we want to compare
                 next_chip = self.board.get_chip(crnt_row+drow, crnt_col + dcol)
+
                 # update counter if the next chip is the same as the current chip
                 #   and update the current chip we are comparing.
-                if current_chip == next_chip:
+                if next_chip == current_chip:
                     count += 1
-                    current_chip = next_chip
                     crnt_row = crnt_row + drow
                     crnt_col = crnt_col + dcol
+                    current_chip = self.board.get_chip(crnt_row, crnt_col)
                 # the chip is not the same, check if an unbroken line of 5 of one chip
                 else:
                     if count == 5:
@@ -109,22 +111,21 @@ class ConnectFiveGame:
             for col in range(self.board.get_dimension()):
                 for drow in range(-1, 2):
                     for dcol in range(-1, 2):
-                        winner = self.uniformChips(row, col, drow, dcol)
-                        if winner == "X":
-                            return "X"
-                        elif winner == "O":
-                            return "O"
+                        if drow != 0 or dcol != 0:
+                            winner = self.uniformChips(row, col, drow, dcol)
+                            if winner is not None:
+                                return winner
+        return None
 
     def isGameOver(self):
         """
-        Return True if no player has a move or one of the 
+        Return True if no player has a move or one of the
         players has 5 of their chips in an unbroken line on the board
         """
 
         winner = self.checkWinner()
         if self.hasMove() == False or winner != None:
             return True
-
         return False
 
     def move(self, row, col, player):
