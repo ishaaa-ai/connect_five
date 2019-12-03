@@ -106,10 +106,13 @@ class ConnectFiveController:
 
         winner = self._game.checkWinner()
         if winner is None:
+            self.return_board()
             print("No one wins. No one got 5 in a row.")
         else:
+            self.return_board()
             print(winner + " is the winner.")
 
+        input("The game is done, press enter to exit.")
 
 
 
