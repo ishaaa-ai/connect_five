@@ -46,3 +46,6 @@ Inside the file, there is a board class. Within the class itself, there are meth
 creates the object itself, a method to get the string representation, as well as getter/setter methods. Additionally, the file has internal methods to
 convert the coordinates on the grid from letters to numbers, and vice versa. In the readme file,
 the contribution is the part of the file that describes the game and out implementation of it.
+Note for marking: Early on, I forgot to change the name/email of my desktop before making commits, etc...
+                  As a result, some of the commits have the name, "Buildtools." This refers to Michael Kwan, as modifying git version history is
+                  considered frowned upon.
