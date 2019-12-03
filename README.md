@@ -33,5 +33,16 @@ The way of playing this game is similar to the Connect Four. The board of this g
 <a name="install"></a>
 ## Documentation : 
 <a name="doc"></a> 
+
+## How the code could be extended :
+<a name = "codeExtention"></a>
+<++>PLACEHOLDER TEXT HERE<++>
 ## Authors : 
 <a name="authors"></a> 
+## Michael :
+<a name = "Michael"></a>
+My contributions to the code consist of the ConnectFiveBoard.py file along with the methods and classes inside.
+Inside the file, there is a board class. Within the class itself, there are methods that check valid positions on the board, a constructor that
+creates the object itself, a method to get the string representation, as well as getter/setter methods. Additionally, the file has internal methods to
+convert the coordinates on the grid from letters to numbers, and vice versa. In the readme file,
+the contribution is the part of the file that describes the game and out implementation of it.
