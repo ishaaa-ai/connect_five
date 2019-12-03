@@ -4,15 +4,15 @@ This is a ConnectFiveGame class, which represents the model in the Connect 5
 
 Author: Phan Trung Kien, Jacob
 """
-from typing import List
 from ConnectFiveBoard import ConnectFiveBoard
+
 
 class ConnectFiveGame:
     board: ConnectFiveBoard
     P1 = 'X'
     P2 = 'O'
 
-    def __init__(self, board : ConnectFiveBoard) -> None:
+    def __init__(self, board: ConnectFiveBoard) -> None:
         """
         initialize a new ConnectFiveGame object
 
@@ -21,9 +21,7 @@ class ConnectFiveGame:
         """
         self.board = board
 
-
-
-    def otherPlayer(self, player):
+    def other_player(self, player):
         """
         Returns the opponent of player
         """
@@ -33,7 +31,7 @@ class ConnectFiveGame:
             return self.P1
         return None
 
-    def uniformChips(self, row:int, col:int, drow:int, dcol:int):
+    def uniform_chips(self, row: int, col: int, drow: int, dcol: int):
         """
         Return the player that has 5 in a row starting at position (row, col)
         in direction (drow, dcol)
@@ -52,18 +50,19 @@ class ConnectFiveGame:
             current_chip = self.board.get_chip(crnt_row, crnt_col)
             count = 1
             # continue until edge of board is hit
-            while self.board.valid(crnt_row+drow, crnt_col + dcol):
-                # get the next chip in drow, dcol direction that we want to compare
-                next_chip = self.board.get_chip(crnt_row+drow, crnt_col + dcol)
+            while self.board.valid(crnt_row + drow, crnt_col + dcol):
+                # get next chip in drow, dcol direction that we want to compare
+                next_chip = self.board.get_chip(crnt_row + drow,
+                                                crnt_col + dcol)
 
-                # update counter if the next chip is the same as the current chip
+                # update counter if next chip is the same as the current chip
                 #   and update the current chip we are comparing.
                 if next_chip == current_chip:
                     count += 1
                     crnt_row = crnt_row + drow
                     crnt_col = crnt_col + dcol
                     current_chip = self.board.get_chip(crnt_row, crnt_col)
-                # the chip is not the same, check if an unbroken line of 5 of one chip
+                # chip is not the same, check if unbroken line of 5 of one chip
                 else:
                     if count == 5:
                         return current_chip
@@ -74,12 +73,9 @@ class ConnectFiveGame:
                 return current_chip
         return None
 
-
-    def hasMove(self):
+    def has_move(self):
         """
         Checks if player has a valid move on the board
-
-        :param player: a player chip on the ConnectFiveBoard
         """
         for row in range(self.board.get_dimension()):
             for col in range(self.board.get_dimension()):
@@ -88,7 +84,7 @@ class ConnectFiveGame:
                     return True
         return False
 
-    def getCount(self, player):
+    def get_count(self, player):
         """
         Return how many chips of type player are on the board
 
@@ -102,7 +98,7 @@ class ConnectFiveGame:
                     count += 1
         return count
 
-    def checkWinner(self):
+    def check_winner(self):
         """
         Check if there is a winner (i.e If a player has 5 chips in a row on the board)
         """
@@ -112,19 +108,19 @@ class ConnectFiveGame:
                 for drow in range(-1, 2):
                     for dcol in range(-1, 2):
                         if drow != 0 or dcol != 0:
-                            winner = self.uniformChips(row, col, drow, dcol)
+                            winner = self.uniform_chips(row, col, drow, dcol)
                             if winner is not None:
                                 return winner
         return None
 
-    def isGameOver(self):
+    def is_game_over(self):
         """
         Return True if no player has a move or one of the
         players has 5 of their chips in an unbroken line on the board
         """
 
-        winner = self.checkWinner()
-        if self.hasMove() == False or winner != None:
+        winner = self.check_winner()
+        if self.has_move() is False or winner is not None:
             return True
         return False
 
@@ -133,5 +129,3 @@ class ConnectFiveGame:
         Place player chip at (row, col) on the board
         """
         self.board.place_token(player, row, col)
-
-

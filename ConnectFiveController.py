@@ -1,15 +1,15 @@
 """
-This is a ConnectFiveController class, which represents the controller in the Connect 5
-"Gomoku" game
+This is a ConnectFiveController class, which represents the controller in the
+Connect 5 "Gomoku" game
 Author: Gauravdeep Setia, Isha Kerpal
 """
 from typing import Tuple
-from ConnectFiveBoard import ConnectFiveBoard
+
 from ConnectFive import ConnectFiveGame
+from ConnectFiveBoard import ConnectFiveBoard
 
 
 class ConnectFiveController:
-
     _board: ConnectFiveBoard
     _game: ConnectFiveGame
     _player: str
@@ -43,7 +43,8 @@ class ConnectFiveController:
             print("")
 
             if len(row) > 0 and len(col) > 0 and (row in
-                    ['a', 'b', 'c', 'd', 'e'] or (0 <= int(row) <= 9)) \
+                                                  ['a', 'b', 'c', 'd', 'e'] or (
+                                                          0 <= int(row) <= 9)) \
                     and (col in ['a', 'b', 'c', 'd', 'e'] or
                          (0 <= int(col) <= 9)):
 
@@ -84,7 +85,7 @@ class ConnectFiveController:
         @return: True if the player has a move.
                  False if the player doesn't have a move anywhere on the board.
         """
-        if self._game.hasMove():
+        if self._game.has_move():
             return True
         return False
 
@@ -96,15 +97,15 @@ class ConnectFiveController:
         @return: None
         """
 
-        while not self._game.isGameOver():
+        while not self._game.is_game_over():
             self.return_board()
             self.player_turn()
             if self.check_move():
                 move = self.get_move()
                 self._game.move(move[0], move[1], self._player)
-                self._player = self._game.otherPlayer(self._player)
+                self._player = self._game.other_player(self._player)
 
-        winner = self._game.checkWinner()
+        winner = self._game.check_winner()
         if winner is None:
             self.return_board()
             print("No one wins. No one got 5 in a row.")
@@ -113,7 +114,6 @@ class ConnectFiveController:
             print(winner + " is the winner.")
 
         input("The game is done, press enter to exit.")
-
 
 
 if __name__ == "__main__":
