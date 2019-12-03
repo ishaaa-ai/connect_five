@@ -15,9 +15,9 @@
 Are you tired of not having anything to play?
 Too many terrible games on the market?
 Too poor to afford anything in this microtransaction-rich environment?
-Maybe you're bored of playing connect 4? (don't worry, we get it! 5 is better than 4 after all!)
+Maybe you're bored of playing connect 4? (don't worry, we get it!)
 
-In that case, allow us to introduce our revolutionary game, connect five.
+In that case, allow us to introduce our game, connect five.
 Traditionally called Gomuku, Connect Five is a game where players take turns putting markers 
 on a 15x15 grid. In this version, one player uses the 'X' character, while the other player
 uses the 'O' character.
@@ -27,6 +27,8 @@ These directions are vertically, horizontally, or diaonally.
 <a name="screenshots"></a> 
 ## How to Play : 
 <a name="play"></a> 
+<a name="kevin"></a>
+The way of playing this game is similar to the Connect Four. The board of this game is similar to Go board and its size is 15×15 board. There are many empty intersections between rows and columns where you can fill these pieces. The winner who can come up with 5 tokens in any directions and you have to think how to block the opponent. There are 2 people playing in this game, one will be Black(0) and one will be White(X). The White(X) always goes first. 
 ## How to install: 
 <a name="install"></a>
 ## Documentation : 
