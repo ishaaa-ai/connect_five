@@ -33,7 +33,7 @@ The way of playing this game is similar to the Connect Four. The board of this g
 <a name="install"></a>
 ## Documentation 
 <a name="doc"></a> 
-
+We decided to design the code for our game using the Model, View, Controller Model (MVC). To follow this model, the game code is divided into three classes; ConnectFiveController, ConnectFiveBoard, and ConnectFive. The ConnectFiveController handles player input and updates the ConnectFive class (the Controller component of the MVC model). The ConnectFive handles all the game logic and updates the ConnectFiveBoard based on them. (the Model component of MVC). Finally, the ConnectFiveBoard outputs all information to the console for the player to consult and make moves from (the View component of MVC).
 ## How the code could be extended
 <a name = "codeExtention"></a>
 <++>PLACEHOLDER TEXT HERE<++>
