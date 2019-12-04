@@ -25,8 +25,9 @@ The goal of the game is to form an unbroken line of five chips in any direction.
 These directions are vertically, horizontally, or diaonally.
 ## Screenshots 
 <a name="screenshots"></a> 
-![Connect Five input](C:\Users\No Name\OneDrive\Pictures\Saved Pictures\pasted image 0.png)
-![Connect Five input](C:\Users\No Name\OneDrive\Pictures\Saved Pictures\pasted image 1.png)
+![Connect Five Board](https://user-images.githubusercontent.com/56453899/70183340-98fe9680-16b3-11ea-857c-bd429149feb8.png)
+![Connect Five Input](https://user-images.githubusercontent.com/56453899/70183465-da8f4180-16b3-11ea-8335-8646f9042ba6.png)
+
 ## How to Play 
 <a name="play"></a> 
 <a name="kevin"></a>
@@ -68,6 +69,6 @@ Most of my contribution to the project code took place in the ConnectFive class.
 My contribution to the project is mainly the ConnectFiveController.py file. I worked on the ConnectFiveController class, which is responsible for the user interaction interface. The ConnectFiveController class accepts user input and sends updates to the model. This class formed the 'Controller' aspect of the MVC model. I worked on methods like 'player_turn', 'return_board', 'check_move'. These methods are helper methods for the most important method ('play') in the class . I worked on the method 'play' as well, which is responsible for sending the user input to the Model and makes appropriate changes (for example displaying which player's turn it is, the winner etc.) that need to be rendered to the console. I also documented the methods in the ConnectFiveController class. I documented the 'How To Install' section in the README.md file. This sections gives clear instructions to a user about installing the game, getting the required configurations and then successfully running the game.
 
 
-### Kevin
-My contribution to the project is the ConnectFive.py file. This class follows the 'Model' aspect of the MVC model which receives all requests from the Controller and sends updates to the ConnectFiveBoard(View). The methods I implement the structure of this class and handle some important methods of this game including: init(), otherplayer(), hasMove(), isGameOver(), getCount() and move(). The move() method is to place token in the position given and the hasMove() use to check an available spot on the board. I have created the isGameOver() to stop the game when the winner exists or there are no empty space on the board and otherplayer() is to return the next player in this game. Furthermore, I discussed with Jacob to implement and fix bugs in the ConnectFive file. In the README.md, I have responsibility to add some description in the "How to play" part which helps to guide player about this game. 
+### Kevin (Phan Trung Kien)
+My contribution to the project is the ConnectFive.py file. This class follows the 'Model' aspect of the MVC model which receives all requests from the Controller and sends updates to the ConnectFiveBoard(View). The methods I implement the structure of this class and handle some important methods of this game including: init(), otherplayer(), hasMove(), isGameOver(), getCount() and move(). The move() method is to place token in the position given and the hasMove() use to check an available spot on the board. I have created the isGameOver() to stop the game when the winner exists or there are no empty space on the board and otherplayer() is to return the next player in this game. Furthermore, I discussed with Jacob to implement and fix bugs in the ConnectFive file. In the README.md, I have responsibility to add some description in the "How to play" and "Screenshot" part which helps to guide player about this game. 
 Besides that, I forgot to change the name/email of my desktop before making commits
