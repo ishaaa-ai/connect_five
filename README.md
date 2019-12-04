@@ -25,10 +25,12 @@ The goal of the game is to form an unbroken line of five chips in any direction.
 These directions are vertically, horizontally, or diaonally.
 ## Screenshots 
 <a name="screenshots"></a> 
+![The ConnectFive Game Input](C:\Users\No Name\OneDrive\Pictures\Saved Pictures\pasted image 0.png)
+![The ConnectFive Game Board](C:\Users\No Name\OneDrive\Pictures\Saved Pictures\pasted image 1.png)
 ## How to Play 
 <a name="play"></a> 
 <a name="kevin"></a>
-The way of playing this game is similar to the Connect Four. The board of this game is similar to Go board and its size is 15×15 board. There are many empty intersections between rows and columns where you can fill these pieces. The winner who can come up with 5 tokens in any directions and you have to think how to block the opponent. There are 2 people playing in this game, one will be Black(0) and one will be White(X). The White(X) always goes first. 
+Beside you know that Connect 5 is a paper and pencil game also called Gomoku, my group creates all systems for playing this game online. The way of playing this game is similar to the Connect Four. The board of this game is similar to Go board and its size is 15×15 board. There are many empty intersections between rows and columns where you can fill these pieces. The winner who can come up with 5 tokens in any directions and you have to think how to block the opponent (avoid the opponents fill 4 tokens first). There are 2 people playing in this game, one will be Black(0) and one will be White(X) and the White(X) always goes first. 
 ## How to install 
 <a name="install"></a>
 The game can be installed by cloning the repository available at the link:<br/>
@@ -64,3 +66,8 @@ Most of my contribution to the project code took place in the ConnectFive class.
 
 ### Isha
 My contribution to the project is mainly the ConnectFiveController.py file. I worked on the ConnectFiveController class, which is responsible for the user interaction interface. The ConnectFiveController class accepts user input and sends updates to the model. This class formed the 'Controller' aspect of the MVC model. I worked on methods like 'player_turn', 'return_board', 'check_move'. These methods are helper methods for the most important method ('play') in the class . I worked on the method 'play' as well, which is responsible for sending the user input to the Model and makes appropriate changes (for example displaying which player's turn it is, the winner etc.) that need to be rendered to the console. I also documented the methods in the ConnectFiveController class. I documented the 'How To Install' section in the README.md file. This sections gives clear instructions to a user about installing the game, getting the required configurations and then successfully running the game.
+
+
+### Kevin (Phan Trung Kien)
+My contribution to the project is the ConnectFive.py class. I implemented the structue of this file and some important methods including 'init()', 'otherplayer()', 'get_count()', 'hasMove()', 'is_game_over()' and 'move()'. The ConnectFive class appects all requests from Controller class and send updates to ConnectFiveBoard(View). The ConnectFive class formed the Controller aspect of the MVC model. The move() method handles to place token in the positions and the hasMove() method is to check a available move on the board. The otherplayer() is to return the next player in the game and get_count() is to show how many tokens of each players. I and Jacob discussed about change some codes and fix bugs in the ConnectFive class. Besides that, I have resposibility to implement the How to Play and ScreenShot who introduces and guide players to play this game in README.md file. 
+Early on, I forgot to change the name/email of my desktop before making commits. 
