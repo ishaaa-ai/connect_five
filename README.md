@@ -31,6 +31,14 @@ These directions are vertically, horizontally, or diaonally.
 The way of playing this game is similar to the Connect Four. The board of this game is similar to Go board and its size is 15×15 board. There are many empty intersections between rows and columns where you can fill these pieces. The winner who can come up with 5 tokens in any directions and you have to think how to block the opponent. There are 2 people playing in this game, one will be Black(0) and one will be White(X). The White(X) always goes first. 
 ## How to install 
 <a name="install"></a>
+The game can be installed by cloning the repository available at the link:
+https://github.com/weboski/connect_five
+STEP 1:
+Clone the repository from the link given above.
+STEP 2:
+Download the ZIP file and extract its contents.
+STEP 3:
+Run the game with the ConnectFiveController.py file. A Python interpreter needs to be installed to run the game. The preferred version is Python 3.8.
 ## Documentation 
 <a name="doc"></a> 
 We decided to design the code for our game using the Model, View, Controller Model (MVC). To follow this model, the game code is divided into three classes; ConnectFiveController, ConnectFiveBoard, and ConnectFive. The ConnectFiveController handles player input and updates the ConnectFive class (the Controller component of the MVC model). The ConnectFive handles all the game logic and updates the ConnectFiveBoard based on them. (the Model component of MVC). Finally, the ConnectFiveBoard outputs all information to the console for the player to consult and make moves from (the View component of MVC).
