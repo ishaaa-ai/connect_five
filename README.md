@@ -49,3 +49,6 @@ the contribution is the part of the file that describes the game and out impleme
 Note for marking: Early on, I forgot to change the name/email of my desktop before making commits, etc...
                   As a result, some of the commits have the name, "Buildtools." This refers to Michael Kwan, as modifying git version history is
                   considered frowned upon.
+
+### Jacob
+Most of my contribution to the project code took place in the ConnectFive class. The methods I implemented handle the most important aspects of the game logic; uniformChips(), hasMove(), and checkWinner(). The uniformChips() and checkWinner() methods handle checking for a player winning (player forms an unbroken line of 5 chips )while hasMove() returns whether there are any possible moves available on the board. Another method I implemented is the getCount() method which counts how many chips of the inputted player type are on the board. Outside of implementing methods, I added and modified documentation for the class so team members understand what each method is responsible for. Another contribution included fixing a bug that prevented our game from detecting a player winning. For the README document I completed the Documentation section which is a high-level description of the code structure.
