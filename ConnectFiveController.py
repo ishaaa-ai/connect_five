@@ -1,6 +1,6 @@
 """
 This is a ConnectFiveController class, which represents the controller in the
-Connect 5 "Gomoku" game
+Connect 5 "Gomoku" game.
 Author: Gauravdeep Setia, Isha Kerpal
 """
 from typing import Tuple
