@@ -7,7 +7,8 @@
 2. [How to Install](#install) 
 3. [How to Play](#play) 
 4. [Documentation](#doc) 
-5. [Authors and their Contributions](#authors) 
+5. [How the Code Could be Extended](#codeExtension)
+6. [Authors and their Contributions](#authors) 
 
 
 ## Description 
@@ -25,14 +26,27 @@ The goal of the game is to form an unbroken line of five chips in any direction.
 These directions are vertically, horizontally, or diaonally.
 ## Screenshots 
 <a name="screenshots"></a> 
-![Connect Five Board](https://user-images.githubusercontent.com/56453899/70183340-98fe9680-16b3-11ea-857c-bd429149feb8.png)
-![Connect Five Input](https://user-images.githubusercontent.com/56453899/70183465-da8f4180-16b3-11ea-8335-8646f9042ba6.png)
+This is what the 15x15 board looks like in the console.
+![Connect Five Board](https://user-images.githubusercontent.com/38819226/70185797-7f138280-16b8-11ea-9f58-ebba53fec10d.png)
+
+The user will input their move by entering the coordinate when given the row and column prompt. 
+![Connect Five Input](https://user-images.githubusercontent.com/38819226/70185893-b08c4e00-16b8-11ea-8d23-d771afa3d5cb.png)
+
+This is what it looks like after a valid move is entered. The next player's turn is then prompted. 
+![Connect Five Example](https://user-images.githubusercontent.com/38819226/70185941-cbf75900-16b8-11ea-8bc7-0e87e33d4afd.png)
+
+This is an example of a completed game where the (x) player won by getting 5 in a row from (0,2) to (4,6).
+![Connect Five Game](https://user-images.githubusercontent.com/38819226/70185990-e598a080-16b8-11ea-8620-f6224a24529e.png)
+
+The game declares a winner!
+
+![Connect Five Winner](https://user-images.githubusercontent.com/38819226/70186021-f21cf900-16b8-11ea-8e57-08826016a3f6.png)
 
 ## How to Play 
 <a name="play"></a> 
 <a name="kevin"></a>
 Besides you think we usually play the ConnectFive with a paper and pen, my group creates a system for playing this game on your laptop or desktop. If you have experience with the Connect Four, the way of playing this game is similar to it. The board of this game is similar to Go board and its size is 15×15 board. There are many empty intersections between rows and columns where you can fill these pieces. The winner who can come up with 5 tokens in any directions and you have to think how to block the opponent (avoid the opponent fill 4 tokens first). There are 2 people playing in this game, one will be Black(0) and one will be White(X). The White(X) always goes first. 
-## How to install 
+## How to Install 
 <a name="install"></a>
 The game can be installed by cloning the repository available at the link:<br/>
 https://github.com/weboski/connect_five<br/>
@@ -45,9 +59,14 @@ Run the game with the ConnectFiveController.py file. A Python interpreter needs 
 ## Documentation 
 <a name="doc"></a> 
 We decided to design the code for our game using the Model, View, Controller Model (MVC). To follow this model, the game code is divided into three classes; ConnectFiveController, ConnectFiveBoard, and ConnectFive. The ConnectFiveController handles player input and updates the ConnectFive class (the Controller component of the MVC model). The ConnectFive handles all the game logic and updates the ConnectFiveBoard based on them. (the Model component of MVC). Finally, the ConnectFiveBoard outputs all information to the console for the player to consult and make moves from (the View component of MVC).
-## How the code could be extended
+## How the Code Could be Extended
 <a name = "codeExtention"></a>
-<++>PLACEHOLDER TEXT HERE<++>
+Do you think you have an idea that can improve upon our design? Then go for it. If you are unsure of what to do, here are some suggestions:
+-Implement Pygame, so that it can be played using buttons that the use clicks using their mouse
+    -Also incorporate a theme and/or animation
+-Implement an AI that can play against the player
+    -Could also choose an AI that makes a random move or even a strategic move
+-Undo function; allows a user to replay their last move
 ## Authors 
 <a name="authors"></a> 
 ### Michael
@@ -72,3 +91,7 @@ My contribution to the project is mainly the ConnectFiveController.py file. I wo
 ### Kevin (Phan Trung Kien)
 My contribution to the project is the ConnectFive.py file. This class follows the 'Model' aspect of the MVC model which receives all requests from the Controller and sends updates to the ConnectFiveBoard(View). The methods I implement the structure of this class and handle some important methods of this game including: init(), otherplayer(), hasMove(), isGameOver(), getCount() and move(). The move() method is to place token in the position given and the hasMove() use to check an available spot on the board. I have created the isGameOver() to stop the game when the winner exists or there are no empty space on the board and otherplayer() is to return the next player in this game. Furthermore, I discussed with Jacob to implement and fix bugs in the ConnectFive file. In the README.md, I have responsibility to add some description in the "How to play" part which helps to guide player about this game. 
 Besides that, I forgot to change the name/email of my desktop before making commits
+
+
+### Gauravdeep 
+
