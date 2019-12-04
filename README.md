@@ -8,7 +8,8 @@
 3. [How to Play](#play) 
 4. [Documentation](#doc) 
 5. [How the Code Could be Extended](#codeExtension)
-6. [Authors and their Contributions](#authors) 
+6. [License](#license)
+7. [Authors and their Contributions](#authors) 
 
 
 ## Description 
@@ -94,4 +95,17 @@ Besides that, I forgot to change the name/email of my desktop before making comm
 
 
 ### Gauravdeep 
+My contribution to the project started in the ConnectFiveController class. I worked on the initial outline of the class and the design of how it will interact with the other classes using the MVC model. This design was similar to the Othello controller classes from CSC207. Some of the methods I implemented included the init method, 'play' and 'get_move'. In terms of debugging, I managed to figure out the source of a bug that made any move be displayed incorrectly on the board. In the other classes, i helped in finding bugs for edge cases as well as communicating how the code should work to allow my team to work with the input my class delivers. For example, the get_move method will automatically convert the letters into numbers so when the game class uses the input, it can assume that its not a letter. In the README file, I organized the outline of the file pertaining to the handout and the design of other READMEs. I showed my team how they can directly edit the README on GitHub. I created the screenshot, license, and navigation section. 
 
+## <a name="license"></a>License Information
+
+The MIT License (MIT)
+
+Copyright © 2019 Connect_Five
+
+You can find a copy of the License at https://mit-license.org/
+
+License for them is in `Public Domain`
+
+
+[Back to top](#top)
